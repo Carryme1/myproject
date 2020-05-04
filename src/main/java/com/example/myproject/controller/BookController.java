@@ -1,6 +1,8 @@
 package com.example.myproject.controller;
 
 import com.example.myproject.entity.Book;
+import com.example.myproject.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,23 +14,22 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api")
 public class BookController {
-    private List<Book> books = new ArrayList<>();
+    @Autowired
+    BookService bookService;
     @PostMapping("/book")
-    public ResponseEntity<List<Book>> addBook(@RequestBody Book book){
-        books.add(book);
-        return ResponseEntity.ok(books);
+    public void addBook(@RequestBody Book book){
+        bookService.addBook(book);
     }
 
-    @DeleteMapping("/book/{id}")
-    public ResponseEntity delteBookById(@PathVariable("id") int id){
-        books.remove(id);
-        return ResponseEntity.ok(books);
-    }
+//    @DeleteMapping("/book/{id}")
+//    public void delteBookById(@PathVariable("id") int id){
+//        bookService.deleteBook(id);
+//    }
 
-    @GetMapping("/book")
-    public ResponseEntity getBookByName(@RequestParam("name") String name) {
-        List<Book> results = books.stream().filter(book -> book.getName().equals(name)).collect(Collectors.toList());
-        return ResponseEntity.ok(results);
-    }
+//    @GetMapping("/book")
+//    public List<Book> getBookByName(@RequestParam("name") String name) {
+//        List<Book> results = (List<Book>) bookService.getBookByName(name);
+//        return results;
+//    }
 
 }

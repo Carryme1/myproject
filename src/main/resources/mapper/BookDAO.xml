@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 将namespace的值设置为DAO类对应的路径 -->
+<mapper namespace="com.example.myproject.dao.BookDAO">
+
+    <insert id="addBook" parameterType="Book">
+        INSERT INTO book values (NULL,#{name},#{description})
+    </insert>
+
+<!--    <delete id="deleteBook" parameterType="id">-->
+<!--        DELETE FROM book where id=#{id}-->
+<!--    </delete>-->
+
+<!--    <select id="getBookByName" parameterType="name">-->
+<!--        SELECT * from book where name=#{name}-->
+<!--    </select>-->
+
+
+
+</mapper>
