@@ -9,13 +9,13 @@
         INSERT INTO book values (NULL,#{name},#{description})
     </insert>
 
-<!--    <delete id="deleteBook" parameterType="id">-->
-<!--        DELETE FROM book where id=#{id}-->
-<!--    </delete>-->
+    <delete id="deleteBook" parameterType="int">
+        DELETE FROM book where id=#{id}
+    </delete>
 
-<!--    <select id="getBookByName" parameterType="name">-->
-<!--        SELECT * from book where name=#{name}-->
-<!--    </select>-->
+    <select id="getBookByName" parameterType="String" resultType="com.example.myproject.entity.Book">
+        SELECT * from book where name=#{name}
+    </select>
 
 
 

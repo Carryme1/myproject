@@ -2,6 +2,7 @@ package com.example.myproject.controller;
 
 import com.example.myproject.entity.Book;
 import com.example.myproject.service.BookService;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,15 +22,16 @@ public class BookController {
         bookService.addBook(book);
     }
 
-//    @DeleteMapping("/book/{id}")
-//    public void delteBookById(@PathVariable("id") int id){
-//        bookService.deleteBook(id);
-//    }
+    @DeleteMapping("/book/{id}")
+    public void delteBookById(@PathVariable("id") int id){
+        bookService.deleteBook(id);
+    }
 
-//    @GetMapping("/book")
-//    public List<Book> getBookByName(@RequestParam("name") String name) {
-//        List<Book> results = (List<Book>) bookService.getBookByName(name);
-//        return results;
-//    }
+    @GetMapping("/book")
+    public List<Book> getBookByName(@RequestParam("name") String name) {
+        List<Book> results = (List<Book>) bookService.getBookByName(name);
+        return results;
+    }
+
 
 }

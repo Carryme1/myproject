@@ -8,7 +8,7 @@ import java.util.List;
 public interface BookDAO {
     void addBook(Book book);
 
-    List<Book> deleteBook(int id);
+    void deleteBook(int id);
 
-    Book getBookByName(String name);
+    List<Book> getBookByName(String name);
 }

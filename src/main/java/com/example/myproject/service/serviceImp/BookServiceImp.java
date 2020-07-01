@@ -10,20 +10,21 @@ import java.util.List;
 
 @Service
 public class BookServiceImp implements BookService {
-    @Autowired
+    @Autowired(required = false)
     BookDAO bookDAO;
+
     @Override
     public void addBook(Book book) {
         bookDAO.addBook(book);
     }
 
     @Override
-    public Book getBookByName(String name) {
+    public List<Book> getBookByName(String name) {
         return bookDAO.getBookByName(name);
     }
 
     @Override
-    public List<Book> deleteBook(int id) {
-        return bookDAO.deleteBook(id);
+    public void deleteBook(int id) {
+        bookDAO.deleteBook(id);
     }
 }
