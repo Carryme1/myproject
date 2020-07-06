@@ -33,5 +33,13 @@ public class BookController {
         return results;
     }
 
+    @PostMapping("/book1")
+    @ResponseBody
+    public void updateDescription(@RequestParam("name") String name,@RequestParam("description") String d){
+        Book book = new Book();
+        book.setDescription(d);
+        book.setName(name);
+        bookService.updateBook(book);
+    }
 
 }

@@ -7,11 +7,16 @@
 
     <insert id="addBook" parameterType="Book">
         INSERT INTO book values (NULL,#{name},#{description})
+
     </insert>
 
     <delete id="deleteBook" parameterType="int">
         DELETE FROM book where id=#{id}
     </delete>
+
+    <update id="updateBook" parameterType="Book">
+        UPDATE book SET description=#{description} where name=#{name}
+    </update>
 
     <select id="getBookByName" parameterType="String" resultType="com.example.myproject.entity.Book">
         SELECT * from book where name=#{name}
